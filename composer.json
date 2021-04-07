@@ -1,0 +1,21 @@
+{
+    "name": "m1n/lib",
+    "description": "Some basic PHP classes for use in other projects (Database, simple PHP templating, autoloader)",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Clive Beckett",
+            "email": "clive@musikinsnetz.de"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "m1n\\lib\\": "src/"
+        }
+    }
+}
