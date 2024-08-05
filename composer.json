@@ -3,6 +3,7 @@
     "description": "Some basic PHP classes for use in other projects (Database, simple PHP templating, autoloader)",
     "type": "library",
     "license": "MIT",
+    "version": "1.1",
     "authors": [
         {
             "name": "Clive Beckett",
@@ -10,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=8.0.0",
         "ext-pdo": "*"
     },
     "autoload": {

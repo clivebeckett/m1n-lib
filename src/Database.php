@@ -5,7 +5,7 @@ namespace m1n\lib;
 /**
  * This class adds functionality to PHP’s PDO class. It contains some
  * ideas taken from the Medoo database framework http://medoo.in
- * 
+ *
  */
 class Database extends \PDO
 {
@@ -149,7 +149,7 @@ class Database extends \PDO
 	 * @param bool $getRowCount Sets a public variable $this->rowCount.
 	 * @return PDOStatement object
 	 */
-	public function query($query, $getRowCount = false)
+	public function query(string $query, ?int $fetchMode = null, mixed ...$fetchModeArgs): \PDOStatement|false
 	{
 		if ($this->debugMode) {
 			echo $this->sqlDebugOutput($query);
@@ -160,7 +160,7 @@ class Database extends \PDO
 			return false;
 		}
 		$queryStatement = parent::query($query);
-		if ($queryStatement !== false && $getRowCount) {
+		if ($queryStatement !== false) {
 			$this->rowCount = $queryStatement->rowCount();
 		}
 		return $queryStatement;
@@ -172,7 +172,7 @@ class Database extends \PDO
 	 * @param array $driverOptions see \PDO::prepare
 	 * @return PDOStatement object
 	 */
-	public function prepare($psQuery, $driverOptions = array())
+	public function prepare(string $psQuery, array $driverOptions = []): \PDOStatement|false
 	{
 		if ($this->debugMode) {
 			echo $this->sqlDebugOutput($this->psQuery);
